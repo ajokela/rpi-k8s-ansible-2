@@ -2,38 +2,100 @@ all:
   vars:
     ansible_connection: ssh
     ansible_user: pi
-    ansible_ssh_pass: raspberry
     ansible_become: true
     ansible_become_user: root
     ansible_python_interpreter: /usr/bin/python3
   hosts:
-    node00:
-      ansible_host: 192.168.76.60
-    node01:
-      ansible_host: 192.168.76.61
-    node02:
-      ansible_host: 192.168.76.62
-    node03:
-      ansible_host: 192.168.76.63
+    rpi-cluster-master:
+      ansible_host: 10.1.1.100
+    rpi-cluster-1:
+      ansible_host: 10.1.1.101
+    rpi-cluster-2:
+      ansible_host: 10.1.1.102
+    rpi-cluster-3:
+      ansible_host: 10.1.1.103
+    rpi-cluster-4:
+      ansible_host: 10.1.1.104
+    rpi-cluster-5:
+      ansible_host: 10.1.1.105
+    rpi-cluster-6:
+      ansible_host: 10.1.1.106
+    rpi-cluster-7:
+      ansible_host: 10.1.1.107
+    rpi-cluster-8:
+      ansible_host: 10.1.1.108
+    rpi-cluster-9:
+      ansible_host: 10.1.1.109
+    rpi-cluster-10:
+      ansible_host: 10.1.1.110
+    rpi-cluster-11:
+      ansible_host: 10.1.1.111
+    rpi-cluster-12:
+      ansible_host: 10.1.1.112
+    rpi-cluster-13:
+      ansible_host: 10.1.1.113
+    rpi-cluster-14:
+      ansible_host: 10.1.1.114
+    rpi-cluster-15:
+      ansible_host: 10.1.1.115
+    rpi-cluster-16:
+      ansible_host: 10.1.1.116
+    rpi-cluster-17:
+      ansible_host: 10.1.1.117
+    rpi-cluster-18:
+      ansible_host: 10.1.1.118
+
+
   children:
     k8s_master:
       hosts:
-        node00:
+        rpi-cluster-master:
       vars:
         node: "master"
     k8s_slaves:
       hosts:
-        node01:
-        node02:
-        node03:
+        rpi-cluster-1:
+        rpi-cluster-2:
+        rpi-cluster-3:
+        rpi-cluster-4:
+        rpi-cluster-5:
+        rpi-cluster-6:
+        rpi-cluster-7:
+        rpi-cluster-8:
+        rpi-cluster-9:
+        rpi-cluster-10:
+        rpi-cluster-11:
+        rpi-cluster-12:
+        rpi-cluster-13:
+        rpi-cluster-14:
+        rpi-cluster-15:
+        rpi-cluster-16:
+        rpi-cluster-17:
+        rpi-cluster-18:
+
       vars:
         node: "slave"
-        master_ip: 192.168.76.60
+        master_ip: 10.1.1.100
     rpi4:
       hosts:
-        node00:
+        rpi-cluster-master:
     rpi3bp:
       hosts:
-        node01:
-        node02:
-        node03:
+        rpi-cluster-1:
+        rpi-cluster-2:
+        rpi-cluster-3:
+        rpi-cluster-4:
+        rpi-cluster-5:
+        rpi-cluster-6:
+        rpi-cluster-7:
+        rpi-cluster-8:
+        rpi-cluster-9:
+        rpi-cluster-10:
+        rpi-cluster-11:
+        rpi-cluster-12:
+        rpi-cluster-13:
+        rpi-cluster-14:
+        rpi-cluster-15:
+        rpi-cluster-16:
+        rpi-cluster-17:
+        rpi-cluster-18:

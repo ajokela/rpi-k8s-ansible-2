@@ -5,6 +5,6 @@
       lineinfile:
         path: /etc/rc.local
         insertbefore: '^exit 0$'
-        line: 'ifconfig wlan0 promisc'
-    - name: Enable promisc on wlan0
-      shell: ifconfig wlan0 promisc
+        line: 'ifconfig eth0 promisc'
+    - name: Enable promisc on eth0
+      shell: ifconfig eth0 promisc
